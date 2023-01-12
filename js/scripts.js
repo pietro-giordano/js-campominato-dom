@@ -91,7 +91,7 @@ function genBombs(num) {
 
       while(bombs.length < 16) {
 
-            const numRandom = Math.floor(Math.random() * (num + 1));
+            const numRandom = Math.floor(Math.random() * num) + 1;
 
             if(bombs.includes(numRandom) == false) {
 

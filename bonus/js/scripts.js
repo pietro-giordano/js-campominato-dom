@@ -25,7 +25,7 @@ play.addEventListener('click',
 
             const over = document.createElement('div');
             gridGame.append(over);
-            
+
             genBombs(level);
             console.log(bombs);
             resetPoints();
@@ -99,7 +99,7 @@ function genBombs(num) {
 
       while(bombs.length < 16) {
 
-            const numRandom = Math.floor(Math.random() * (num + 1));
+            const numRandom = Math.floor(Math.random() * num) + 1;
 
             if(bombs.includes(numRandom) == false) {
 
