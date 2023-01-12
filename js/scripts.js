@@ -8,6 +8,8 @@ const gridGame = document.getElementById('grid-game');
 const play = document.getElementById('play');
 
 const bombs = [];
+const wOrL = document.querySelector('.w-or-l');
+const finalPoints = document.querySelector('.final-points');
 
 play.addEventListener('click',
 
@@ -15,9 +17,9 @@ play.addEventListener('click',
 
             gridGame.innerHTML = '';
 
-            const level = document.getElementById('level').value;
+            const level = parseInt(document.getElementById('level').value);
 
-            genBombs();
+            genBombs(level);
             console.log(bombs);
 
             for(let i = 1; i <= level; i++) {
@@ -40,17 +42,14 @@ play.addEventListener('click',
                   
                         function () {
 
-                              for (let i = 1; i <= level; i++) {
+                              if (bombs.includes(i)) {
 
-                                    if (bombs.includes(i) == true) {
+                                    this.classList.add('bomb');
+                                    wOrL.innerHTML = 'Hai perso!';
 
-                                          this.classList.add('bomb');
+                              } else {
 
-                                    } else {
-
-                                          this.classList.add('point');
-
-                                    }
+                                    this.classList.add('point');
 
                               }
 
@@ -68,7 +67,7 @@ play.addEventListener('click',
 
 //-----------------------------------------------------------------------------------------------------------------------------
 
-function genBombs() {
+function genBombs(num) {
 
       for(let i = 0; i < bombs.length; i++) {
 
@@ -76,40 +75,30 @@ function genBombs() {
 
       }
 
-      console.log(bombs)
+      while(bombs.length < 16) {
 
-      for(let i = 0; i < 16; i++) {
-
-            const numRandom = Math.floor(Math.random() * (100 + 1));
+            const numRandom = Math.floor(Math.random() * (num + 1));
 
             if(bombs.includes(numRandom) == false) {
 
                   bombs.push(numRandom);
 
-            } else {
-
-                  i--;
-
             }
 
       }
 
 }
 
-function clickCheck(num, cell) {
- 
-      for(let i = 0; i < num; i++) {
+// function clickCheck(cell) {
 
-            if(bombs.includes(i)) {
+//       if(bombs.includes(i)) {
 
-                  cell.classList.add('clickbomb');
+//             cell.classList.add('clickbomb');
 
-            } else {
+//       } else {
 
-                  cell.classList.add('clickpoint');
+//             cell.classList.add('clickpoint');
 
-            }
+//       }
 
-      }
-
-}
+// }
