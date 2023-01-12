@@ -64,7 +64,7 @@ play.addEventListener('click',
 
                                           if(bombs.includes(x)) {
 
-                                                cells[x].classList.add('bomb');
+                                                cells[x - 1].classList.add('bomb');
 
                                           }
 
