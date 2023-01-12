@@ -1,0 +1,83 @@
+ /* RESET  */
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+}
+
+body {
+      font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+      height: 10vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+}
+
+header button {
+      background-color: orange;
+      border: 2px solid orangered;
+      padding: 5px 20px;
+      border-radius: 15px;
+      cursor: pointer;
+}
+
+header select {
+      margin-right: 15px;
+      padding: 5px;
+}
+
+main {
+      height: 85vh;
+      width: 100%;
+      background-color: aquamarine;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+#grid-game {
+      height: 90%;
+      width: calc(80vh * 0.9);
+      display: flex;
+      flex-wrap: wrap;
+}
+
+#grid-game .cell {
+      border: 1px solid black;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+#grid-game .cell.easy {
+      height: calc(100% / 10);
+      width: calc(100% / 10);
+}
+
+#grid-game .cell.normal {
+      height: calc(100% / 9);
+      width: calc(100% / 9);
+}
+
+#grid-game .cell.hard {
+      height: calc(100% / 7);
+      width: calc(100% / 7);
+}
+
+#grid-game .cell.clicked {
+      background-color: lightcoral;
+}
+
+footer {
+      height: 5vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding-left: 20px;
+}
