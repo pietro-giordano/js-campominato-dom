@@ -70,8 +70,12 @@ main {
       width: calc(100% / 7);
 }
 
-#grid-game .cell.clicked {
+#grid-game .cell.bomb {
       background-color: lightcoral;
+}
+
+#grid-game .cell.point {
+      background-color: lightgreen;
 }
 
 footer {

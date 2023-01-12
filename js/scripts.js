@@ -34,22 +34,29 @@ play.addEventListener('click',
                         newCell.classList.add('hard');
                   }
 
+                  // console.log(bombs);
+
                   newCell.addEventListener('click',
                   
-                        function() {
+                        function () {
 
-                              if (this.classList.contains('clicked')) {
-                                    this.classList.remove('clicked');
-                              }
-                              else {
-                                    this.classList.add('clicked');
-                              }
+                              for (let i = 1; i <= level; i++) {
 
-                              console.log('Hai cliccato la cella numero ' + i);
+                                    if (bombs.includes(i) == true) {
+
+                                          this.classList.add('bomb');
+
+                                    } else {
+
+                                          this.classList.add('point');
+
+                                    }
+
+                              }
 
                         }
 
-                  )
+                  );
 
                   gridGame.append(newCell);
 
@@ -69,13 +76,37 @@ function genBombs() {
 
       }
 
+      console.log(bombs)
+
       for(let i = 0; i < 16; i++) {
 
-            const numRandom = Math.floor(Math.random() * (16 + 1));
+            const numRandom = Math.floor(Math.random() * (100 + 1));
 
-            if(numRandom != bombs[i]) {
+            if(bombs.includes(numRandom) == false) {
 
                   bombs.push(numRandom);
+
+            } else {
+
+                  i--;
+
+            }
+
+      }
+
+}
+
+function clickCheck(num, cell) {
+ 
+      for(let i = 0; i < num; i++) {
+
+            if(bombs.includes(i)) {
+
+                  cell.classList.add('clickbomb');
+
+            } else {
+
+                  cell.classList.add('clickpoint');
 
             }
 
