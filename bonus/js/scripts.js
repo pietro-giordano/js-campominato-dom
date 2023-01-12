@@ -21,6 +21,8 @@ play.addEventListener('click',
             wOrL.innerHTML = '';
             finalPoints.innerHTML = '';
 
+            const cells = [];
+
             const level = parseInt(document.getElementById('level').value);
 
             const over = document.createElement('div');
@@ -35,7 +37,7 @@ play.addEventListener('click',
                   const newCell = document.createElement('div');
                   newCell.classList.add('cell');
                   newCell.innerHTML = i;
-
+                  
                   if(level == 100) {
                         newCell.classList.add('easy');
                   } else if (level == 81) {
@@ -43,6 +45,8 @@ play.addEventListener('click',
                   } else if (level == 49) {
                         newCell.classList.add('hard');
                   }
+                  
+                  cells.push(newCell);
 
                   newCell.addEventListener('click',
                   
@@ -55,6 +59,16 @@ play.addEventListener('click',
                                     finalPoints.innerHTML = 'Your final score is: ' + points.length;
 
                                     over.classList.add('overlay');
+
+                                    for(let x = 1; x <= level; x++) {
+
+                                          if(bombs.includes(x)) {
+
+                                                cells[x].classList.add('bomb');
+
+                                          }
+
+                                    }
 
                               } else {
 
