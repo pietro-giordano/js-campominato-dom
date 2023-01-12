@@ -8,6 +8,7 @@ const gridGame = document.getElementById('grid-game');
 const play = document.getElementById('play');
 
 const bombs = [];
+const points = [];
 const wOrL = document.querySelector('.w-or-l');
 const finalPoints = document.querySelector('.final-points');
 
@@ -16,11 +17,15 @@ play.addEventListener('click',
       function() {
 
             gridGame.innerHTML = '';
+            wOrL.innerHTML = '';
+            finalPoints.innerHTML = '';
 
             const level = parseInt(document.getElementById('level').value);
 
             genBombs(level);
             console.log(bombs);
+            resetPoints();
+            console.log(points);
 
             for(let i = 1; i <= level; i++) {
 
@@ -45,11 +50,23 @@ play.addEventListener('click',
                               if (bombs.includes(i)) {
 
                                     this.classList.add('bomb');
-                                    wOrL.innerHTML = 'Hai perso!';
+                                    wOrL.innerHTML = 'You lose! Click play for another game';
+                                    finalPoints.innerHTML = 'Your final score is: ' + points.length;
 
                               } else {
 
                                     this.classList.add('point');
+                                    points.push('+1');
+                                    
+                                    wOrL.innerHTML = '';
+                                    finalPoints.innerHTML = 'Your score is: ' + points.length;
+
+                                    if(points.length == level - 16) {
+
+                                          wOrL.innerHTML = 'You win! Click play for another game';
+                                          finalPoints.innerHTML = 'Your final score is: ' + points.length;
+
+                                    }
 
                               }
 
@@ -84,6 +101,16 @@ function genBombs(num) {
                   bombs.push(numRandom);
 
             }
+
+      }
+
+}
+
+function resetPoints() {
+
+      for(let i = 0; i < points.length; i++) {
+
+            points.splice(i);
 
       }
 

@@ -18,6 +18,11 @@ header {
       padding: 20px;
 }
 
+header .w-or-l,
+header .final-points {
+      font-size: 1.5rem;
+}
+
 header button {
       background-color: orange;
       border: 2px solid orangered;
@@ -36,7 +41,7 @@ main {
       width: 100%;
       background-color: aquamarine;
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
 }
 
