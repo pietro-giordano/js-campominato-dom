@@ -4,6 +4,7 @@
 3. Se casella diventa rossa gioco finisce altrimenti finisce dopo aver cliccato tutte le verdi
 4. Generare punteggio (numero di click prima della fine del gioco) man mano e a fine partita
 */
+const main = document.querySelector('main');
 const gridGame = document.getElementById('grid-game');
 const play = document.getElementById('play');
 
@@ -22,6 +23,9 @@ play.addEventListener('click',
 
             const level = parseInt(document.getElementById('level').value);
 
+            const over = document.createElement('div');
+            gridGame.append(over);
+            
             genBombs(level);
             console.log(bombs);
             resetPoints();
@@ -50,6 +54,8 @@ play.addEventListener('click',
                                     wOrL.innerHTML = 'You lose! Click play for another game';
                                     finalPoints.innerHTML = 'Your final score is: ' + points.length;
 
+                                    over.classList.add('overlay');
+
                               } else {
 
                                     this.classList.add('point');
@@ -62,6 +68,8 @@ play.addEventListener('click',
 
                                           wOrL.innerHTML = 'You win! Click play for another game';
                                           finalPoints.innerHTML = 'Your final score is: ' + points.length;
+
+                                          over.classList.add('overlay');
 
                                     }
 
@@ -110,6 +118,12 @@ function resetPoints() {
             points.splice(i);
 
       }
+
+}
+
+function overlay() {
+
+      
 
 }
 
