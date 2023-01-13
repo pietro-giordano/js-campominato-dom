@@ -71,8 +71,12 @@ play.addEventListener('click',
 
                               } else {
 
-                                    this.classList.add('point');
-                                    points.push('+1');
+                                    if(this.classList.value != 'cell easy point') {
+
+                                          this.classList.add('point');
+                                          points.push('+1');
+
+                                    }
                                     
                                     wOrL.innerHTML = '';
                                     finalPoints.innerHTML = 'Your score is: ' + points.length;
