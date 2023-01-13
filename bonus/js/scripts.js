@@ -4,7 +4,6 @@
 3. Se casella diventa rossa gioco finisce altrimenti finisce dopo aver cliccato tutte le verdi
 4. Generare punteggio (numero di click prima della fine del gioco) man mano e a fine partita
 */
-const main = document.querySelector('main');
 const gridGame = document.getElementById('grid-game');
 const play = document.getElementById('play');
 
