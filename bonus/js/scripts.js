@@ -71,7 +71,7 @@ play.addEventListener('click',
 
                               } else {
 
-                                    if(this.classList.value != 'cell easy point') {
+                                    if(this.matches('.point') == false) {
 
                                           this.classList.add('point');
                                           points.push('+1');
